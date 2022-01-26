@@ -9,4 +9,4 @@ class ProductAdmin(admin.ModelAdmin):
 
 @admin.register(Product_relations)
 class Product_relationsAdmin(admin.ModelAdmin):
-    list_display = ['product_image', 'product_size', 'product_color', 'images', 'size', 'color']
+    list_display = ['product', 'images', 'size', 'color']
