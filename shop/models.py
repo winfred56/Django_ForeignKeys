@@ -5,6 +5,7 @@ class Product(models.Model):
     title = models.CharField(max_length=100)
     description = models.TextField()
     price = models.DecimalField(max_digits=3, decimal_places=2)
+    slug = models.SlugField(unique=True)
     created = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -14,7 +15,7 @@ class Product(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("product:all_products", args=[self.id])
+        return reverse("product:all_products", args=[self.slug])
 
 
 
