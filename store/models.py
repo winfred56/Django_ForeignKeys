@@ -15,14 +15,14 @@ class Product(models.Model):
         return self.title
 
     def get_absolute_url(self):
-        return reverse("product:all_products", args=[self.slug])
+        return reverse("store:all_products", args=[self.slug])
 
 
 
 class Product_relations(models.Model):
-    product_image = models.ForeignKey(Product, on_delete=models.CASCADE)
-    product_size = models.ForeignKey(Product, on_delete=models.CASCADE)
-    product_color = models.ForeignKey(Product, on_delete=models.CASCADE)
+    product_image = models.ForeignKey(Product, related_name='p_image', on_delete=models.CASCADE)
+    product_size = models.ForeignKey(Product, related_name='p_size', on_delete=models.CASCADE)
+    product_color = models.ForeignKey(Product,related_name='p_color', on_delete=models.CASCADE)
     images =  models.ImageField(upload_to='images/')
     size = models.CharField(max_length=50)
     color = models.CharField(max_length=50)
