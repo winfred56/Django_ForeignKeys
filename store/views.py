@@ -11,6 +11,10 @@ def all_products(request):
 
 def detail(request, slug):
     product = Product.objects.get(slug=slug)
-    context = {'product':product}
+    p_image = Product.p_image
+    context = {
+        'product':product,
+        'p_image':p_image
+    }
     return render(request,'store/detail.html',context)
 
